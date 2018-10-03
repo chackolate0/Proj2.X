@@ -78,10 +78,11 @@ int main(void){
     LCD_WriteStringAtPos("Team 1",0,0);
     while(1){
         sprintf(hexString, "Hex: %#04x", SWT_GetGroupValue());
-        //sprintf(decString,"%04d", SWT_GetGroupValue());
+        sprintf(decString,"%04d", SWT_GetGroupValue());
         LCD_WriteStringAtPos(hexString, 1, 0);
         LED_SetGroupValue(SWT_GetGroupValue());
-        update_SSD(SWT_GetGroupValue());
+        SSD_WriteDigitsGrouped(SWT_GetGroupValue(),0);
+//        update_SSD(SWT_GetGroupValue());
     }
 }
 
@@ -105,6 +106,5 @@ void update_SSD(int value) {
         SSD3 = tens;
     SSD2 = ones = floor((int)dec % 100 / 10);
     SSD1 = tenths = floor((int)dec % 10);
-    SSD_WriteDigits(SSD1, SSD2, SSD3, SSD4, 0, 1, 0, 0);
-
+    SSD_WriteDigits(SSD1, SSD2, SSD3, SSD4, 0, 0, 0, 0);
 }
