@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../LibPack.X/swt.c Proj2.c ../LibPack.X/ssd.c
+SOURCEFILES_QUOTED_IF_SPACED=Proj2.c swt.c ssd.c led.c lcd.c utils.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1784141561/swt.o ${OBJECTDIR}/Proj2.o ${OBJECTDIR}/_ext/1784141561/ssd.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1784141561/swt.o.d ${OBJECTDIR}/Proj2.o.d ${OBJECTDIR}/_ext/1784141561/ssd.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Proj2.o ${OBJECTDIR}/swt.o ${OBJECTDIR}/ssd.o ${OBJECTDIR}/led.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/utils.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Proj2.o.d ${OBJECTDIR}/swt.o.d ${OBJECTDIR}/ssd.o.d ${OBJECTDIR}/led.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/utils.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1784141561/swt.o ${OBJECTDIR}/Proj2.o ${OBJECTDIR}/_ext/1784141561/ssd.o
+OBJECTFILES=${OBJECTDIR}/Proj2.o ${OBJECTDIR}/swt.o ${OBJECTDIR}/ssd.o ${OBJECTDIR}/led.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/utils.o
 
 # Source Files
-SOURCEFILES=../LibPack.X/swt.c Proj2.c ../LibPack.X/ssd.c
+SOURCEFILES=Proj2.c swt.c ssd.c led.c lcd.c utils.c
 
 
 CFLAGS=
@@ -106,42 +106,78 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/1784141561/swt.o: ../LibPack.X/swt.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1784141561" 
-	@${RM} ${OBJECTDIR}/_ext/1784141561/swt.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1784141561/swt.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1784141561/swt.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1784141561/swt.o.d" -o ${OBJECTDIR}/_ext/1784141561/swt.o ../LibPack.X/swt.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
 ${OBJECTDIR}/Proj2.o: Proj2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Proj2.o.d 
 	@${RM} ${OBJECTDIR}/Proj2.o 
 	@${FIXDEPS} "${OBJECTDIR}/Proj2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Proj2.o.d" -o ${OBJECTDIR}/Proj2.o Proj2.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/_ext/1784141561/ssd.o: ../LibPack.X/ssd.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1784141561" 
-	@${RM} ${OBJECTDIR}/_ext/1784141561/ssd.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1784141561/ssd.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1784141561/ssd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1784141561/ssd.o.d" -o ${OBJECTDIR}/_ext/1784141561/ssd.o ../LibPack.X/ssd.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+${OBJECTDIR}/swt.o: swt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/swt.o.d 
+	@${RM} ${OBJECTDIR}/swt.o 
+	@${FIXDEPS} "${OBJECTDIR}/swt.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/swt.o.d" -o ${OBJECTDIR}/swt.o swt.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/ssd.o: ssd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ssd.o.d 
+	@${RM} ${OBJECTDIR}/ssd.o 
+	@${FIXDEPS} "${OBJECTDIR}/ssd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ssd.o.d" -o ${OBJECTDIR}/ssd.o ssd.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/led.o: led.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/led.o.d 
+	@${RM} ${OBJECTDIR}/led.o 
+	@${FIXDEPS} "${OBJECTDIR}/led.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/led.o.d" -o ${OBJECTDIR}/led.o led.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/lcd.o: lcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/lcd.o.d 
+	@${RM} ${OBJECTDIR}/lcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/lcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/lcd.o.d" -o ${OBJECTDIR}/lcd.o lcd.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/utils.o: utils.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/utils.o.d 
+	@${RM} ${OBJECTDIR}/utils.o 
+	@${FIXDEPS} "${OBJECTDIR}/utils.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/utils.o.d" -o ${OBJECTDIR}/utils.o utils.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 else
-${OBJECTDIR}/_ext/1784141561/swt.o: ../LibPack.X/swt.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1784141561" 
-	@${RM} ${OBJECTDIR}/_ext/1784141561/swt.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1784141561/swt.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1784141561/swt.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1784141561/swt.o.d" -o ${OBJECTDIR}/_ext/1784141561/swt.o ../LibPack.X/swt.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
 ${OBJECTDIR}/Proj2.o: Proj2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Proj2.o.d 
 	@${RM} ${OBJECTDIR}/Proj2.o 
 	@${FIXDEPS} "${OBJECTDIR}/Proj2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Proj2.o.d" -o ${OBJECTDIR}/Proj2.o Proj2.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/_ext/1784141561/ssd.o: ../LibPack.X/ssd.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1784141561" 
-	@${RM} ${OBJECTDIR}/_ext/1784141561/ssd.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1784141561/ssd.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1784141561/ssd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1784141561/ssd.o.d" -o ${OBJECTDIR}/_ext/1784141561/ssd.o ../LibPack.X/ssd.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+${OBJECTDIR}/swt.o: swt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/swt.o.d 
+	@${RM} ${OBJECTDIR}/swt.o 
+	@${FIXDEPS} "${OBJECTDIR}/swt.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/swt.o.d" -o ${OBJECTDIR}/swt.o swt.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/ssd.o: ssd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ssd.o.d 
+	@${RM} ${OBJECTDIR}/ssd.o 
+	@${FIXDEPS} "${OBJECTDIR}/ssd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ssd.o.d" -o ${OBJECTDIR}/ssd.o ssd.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/led.o: led.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/led.o.d 
+	@${RM} ${OBJECTDIR}/led.o 
+	@${FIXDEPS} "${OBJECTDIR}/led.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/led.o.d" -o ${OBJECTDIR}/led.o led.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/lcd.o: lcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/lcd.o.d 
+	@${RM} ${OBJECTDIR}/lcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/lcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/lcd.o.d" -o ${OBJECTDIR}/lcd.o lcd.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/utils.o: utils.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/utils.o.d 
+	@${RM} ${OBJECTDIR}/utils.o 
+	@${FIXDEPS} "${OBJECTDIR}/utils.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/utils.o.d" -o ${OBJECTDIR}/utils.o utils.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 
