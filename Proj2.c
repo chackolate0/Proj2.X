@@ -39,7 +39,7 @@
 #pragma config FCKSM = CSDCMD           // Clock Switching and Monitor Selection (Clock Switch Disable, FSCM Disabled)
 #pragma config WDTPS = PS1048576        // Watchdog Timer Postscaler (1:1048576)
 #pragma config WINDIS = OFF             // Watchdog Timer Window Enable (Watchdog Timer is in Non-Window Mode)
-#pragma config FWDTEN = ON              // Watchdog Timer Enable (WDT Enabled)
+#pragma config FWDTEN = OFF              // Watchdog Timer Enable (WDT Enabled)
 #pragma config FWDTWINSZ = WINSZ_25     // Watchdog Timer Window Size (Window Size is 25%)
 
 // DEVCFG0
@@ -69,7 +69,6 @@ int main(void){
 //    ANSELA = 0x0;
 //    LATA = 0xFF;
     char hexString[80];
-    char decString[80];
     LED_Init();
     LCD_Init();
     SSD_Init();
@@ -78,33 +77,49 @@ int main(void){
     LCD_WriteStringAtPos("Team 1",0,0);
     while(1){
         sprintf(hexString, "Hex: %#04x", SWT_GetGroupValue());
-        sprintf(decString,"%04d", SWT_GetGroupValue());
         LCD_WriteStringAtPos(hexString, 1, 0);
         LED_SetGroupValue(SWT_GetGroupValue());
-        SSD_WriteDigitsGrouped(SWT_GetGroupValue(),0);
-//        update_SSD(SWT_GetGroupValue());
+        update_SSD(SWT_GetGroupValue());
+        //SSD_WriteDigitsGroupedDecimal(SWT_GetGroupValue(),0); 
     }
 }
 
+void SSD_WriteDigitsGroupedDecimal(unsigned int val, unsigned char dp) {
+    unsigned int decimal = 0;
+    int shift = 0;
+
+    while(val) {
+        decimal |= (val % 10) << (shift << 2);
+        shift++;
+        val /= 10;
+    }
+
+    SSD_WriteDigitsGrouped(decimal, dp);
+}
+
 void update_SSD(int value) {
-    char dec[80];
-    sprintf(dec, "%d", value);
     int hunds, tens, ones, tenths;
     char SSD1 = 0b0000000; //SSD setting for 1st SSD (LSD)
     char SSD2 = 0b0000000; //SSD setting for 2nd SSD
     char SSD3 = 0b0000000; //SSD setting for 3rd SSD 
     char SSD4 = 0b0000000; //SSD setting for 4th SSD (MSD)
-    hunds = floor((int)dec / 1000);
+    SSD4 = 17;
+    hunds = floor(value / 100);
     if (hunds > 0)
-        SSD4 = hunds; //SSD4 = display_char[thous];
+        SSD3 = hunds; //SSD4 = display_char[thous];
     else
-        SSD4 = 17; //blank display
-    tens = floor(((int)dec % 1000) / 100);
-    if (hunds == 0 && tens == 0)
         SSD3 = 17; //blank display
+    tens = floor((value % 100) / 10);
+    if (hunds == 0 && tens == 0){
+        SSD2 = 17; //blank display
+    }
     else
-        SSD3 = tens;
-    SSD2 = ones = floor((int)dec % 100 / 10);
-    SSD1 = tenths = floor((int)dec % 10);
+        SSD2 = tens;
+    ones = floor(value % 10);
+    if (hunds == 0 && tens == 0 && ones == 0)
+        SSD1 = 0;
+    else
+        SSD1 = ones;
+    
     SSD_WriteDigits(SSD1, SSD2, SSD3, SSD4, 0, 0, 0, 0);
 }
