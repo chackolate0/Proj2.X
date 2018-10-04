@@ -84,18 +84,18 @@ int main(void){
     }
 }
 
-void SSD_WriteDigitsGroupedDecimal(unsigned int val, unsigned char dp) {
-    unsigned int decimal = 0;
-    int shift = 0;
-
-    while(val) {
-        decimal |= (val % 10) << (shift << 2);
-        shift++;
-        val /= 10;
-    }
-
-    SSD_WriteDigitsGrouped(decimal, dp);
-}
+//void SSD_WriteDigitsGroupedDecimal(unsigned int val, unsigned char dp) {
+//    unsigned int decimal = 0;
+//    int shift = 0;
+//
+//    while(val) {
+//        decimal |= (val % 10) << (shift << 2);
+//        shift++;
+//        val /= 10;
+//    }
+//
+//    SSD_WriteDigitsGrouped(decimal, dp);
+//}
 
 void update_SSD(int value) {
     int hunds, tens, ones, tenths;
